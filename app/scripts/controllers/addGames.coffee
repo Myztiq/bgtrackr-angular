@@ -15,3 +15,6 @@ angular.module('bgtrackrApp')
       name: $scope.name
     .$promise.then (results)->
       $scope.results = results
+    , (err)->
+      console.log err
+      $scope.error = err
