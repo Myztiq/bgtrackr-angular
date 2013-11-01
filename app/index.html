@@ -25,8 +25,25 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
+    <div class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="index">Board Game Trackr</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a ui-sref="profile" ng-bind="user.username"></a>
+        </li>
+        <li ng-show="user.username">
+          <a ui-sref="logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="container" ui-view></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -42,31 +59,39 @@
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
 
-        <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-tooltip.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-modal.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-transition.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-button.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-popover.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-typeahead.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-carousel.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-scrollspy.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
-        <!-- endbuild -->
+    <!-- build:js scripts/plugins.js -->
+    <script src="bower_components/bootstrap-sass/js/affix.js"></script>
+    <script src="bower_components/bootstrap-sass/js/alert.js"></script>
+    <script src="bower_components/bootstrap-sass/js/dropdown.js"></script>
+    <script src="bower_components/bootstrap-sass/js/tooltip.js"></script>
+    <script src="bower_components/bootstrap-sass/js/modal.js"></script>
+    <script src="bower_components/bootstrap-sass/js/transition.js"></script>
+    <script src="bower_components/bootstrap-sass/js/button.js"></script>
+    <script src="bower_components/bootstrap-sass/js/popover.js"></script>
+    <script src="bower_components/bootstrap-sass/js/carousel.js"></script>
+    <script src="bower_components/bootstrap-sass/js/scrollspy.js"></script>
+    <script src="bower_components/bootstrap-sass/js/collapse.js"></script>
+    <script src="bower_components/bootstrap-sass/js/tab.js"></script>
+    <!-- endbuild -->
 
-        <!-- build:js scripts/modules.js -->
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <!-- endbuild -->
+    <!-- build:js scripts/modules.js -->
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/ngBase64/ngBase64.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/ngKinvey/kinvey.js"></script>
+    <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/login-login.js"></script>
+    <script src="scripts/controllers/login-register.js"></script>
+    <script src="scripts/controllers/profile.js"></script>
+    <script src="scripts/controllers/games.js"></script>
+    <script src="scripts/controllers/addGames.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
