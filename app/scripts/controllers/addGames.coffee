@@ -12,9 +12,28 @@ angular.module('bgtrackrApp')
 
   $scope.search = ()->
     $kinvey.Games.query
-      name: $scope.name
+      query:
+        name: $scope.name
     .$promise.then (results)->
+      for result in results
+        do (result)->
+          getGameById(result['$'].id).then (details)->
+            result.details = details[0]
+          console.log
+
+
       $scope.results = results
     , (err)->
       console.log err
       $scope.error = err
+
+
+
+  getGameById = (id)->
+    $kinvey.Games.query
+      query:
+        _id: id
+    .$promise.then (details)->
+      details
+    , ->
+      getGameById id

@@ -13,14 +13,21 @@
 <div class="row">
   <div class="col-sm-12">
     <span ng-show="results && results.length == 0">No games found</span>
-    
-    <ul ng-show="results && results.length">
-      <li ng-repeat="game in results">
-        <a ng-click="select(game)" style="cursor: pointer">
-          <span ng-bind="game.name['@value']"></span>
-          <span ng-bind-template="({{game.yearpublished['@value']}})" ng-show="game.yearpublished['@value']"></span>
-        </a>
-      </li>
-    </ul>
+
+    <div ng-show="results && results.length">
+      <div class="row" ng-repeat="game in results">
+        <div class="col-sm-4">
+          <a ng-click="select(game)" style="cursor: pointer">
+          <span ng-bind="game.name[0]['$'].value"></span>
+          </a>
+        </div>
+        <div class="col-sm-4">
+          <span ng-bind-template="({{game.yearpublished[0]['$'].value}})" ng-show="game.yearpublished[0]['$'].value"></span>
+        </div>
+        <div class="col-sm-4">
+          <img src="{{game.details.thumbnail[0] || game.details.image[0]}}" class="img-responsive"/>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
