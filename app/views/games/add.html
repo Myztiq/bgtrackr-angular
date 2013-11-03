@@ -17,12 +17,28 @@
     <div ng-show="results && results.length">
       <div class="row" ng-repeat="game in results">
         <div class="col-sm-4">
-          <a ng-click="select(game)" style="cursor: pointer">
           <span ng-bind="game.name[0]['$'].value"></span>
-          </a>
+          <span ng-bind-template="({{game.yearpublished[0]['$'].value}})" ng-show="game.yearpublished[0]['$'].value"></span>
+          <br/>
+          <table class="table table-condensed">
+            <tr>
+              <th>Max Players</th>
+              <td ng-bind="game.details.maxplayers[0]['$'].value"></td>
+            </tr>
+            <tr>
+              <th>Min Players</th>
+              <td ng-bind="game.details.minplayers[0]['$'].value"></td>
+            </tr>
+            <tr>
+              <th>Playing Time</th>
+              <td ng-bind="game.details.playingtime[0]['$'].value"></td>
+            </tr>
+          </table>
         </div>
         <div class="col-sm-4">
-          <span ng-bind-template="({{game.yearpublished[0]['$'].value}})" ng-show="game.yearpublished[0]['$'].value"></span>
+          <a ng-click="select(game)" class="btn btn-primary">
+            Add Game
+          </a>
         </div>
         <div class="col-sm-4">
           <img src="{{game.details.thumbnail[0] || game.details.image[0]}}" class="img-responsive"/>
